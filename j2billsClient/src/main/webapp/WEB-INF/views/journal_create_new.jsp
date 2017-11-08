@@ -40,7 +40,7 @@ $(document).ready(function(){
 		 	<BR>
 		 	<div class="input-group">
 		    <span class="input-group-addon">Wartość</span>
-		    <form:input path="value" id="value" type="number" class="form-control" placeholder="Wartość"/>
+		    <form:input path="value" id="value" type="number" step="0.01" class="form-control" placeholder="Wartość"/>
 		 	</div>
 		 	<BR>
 			<form:select path="accountId" class="form-control">
