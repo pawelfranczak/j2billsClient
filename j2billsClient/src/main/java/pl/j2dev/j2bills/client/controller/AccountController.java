@@ -26,7 +26,7 @@ import pl.j2dev.pojo.Person;
 @RequestMapping("/account")
 public class AccountController {
 	
-	private final int JOURNALS_ON_ONE_SITE = 5;
+	private final int JOURNALS_ON_ONE_SITE = 15;
 
 	@Autowired
 	IRepository<Account> daoAccount;
