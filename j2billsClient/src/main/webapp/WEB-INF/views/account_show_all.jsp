@@ -11,12 +11,24 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
+
+function calcsum(checkboxElem) {
+  var checkBoxValue = checkboxElem.value
+  var sum = document.getElementById("sum");
+  var newsum = 0
+  if (checkboxElem.checked) {
+    newsum = +parseFloat(sum.textContent) + +checkBoxValue;
+  } else {
+    newsum = +parseFloat(sum.textContent) - +checkBoxValue;    
+  }
+  newsum = newsum.toFixed(2)
+  document.getElementById("sum").textContent = newsum 
+}
+
 </script>
 
 <html> 
@@ -33,11 +45,12 @@ $(document).ready(function(){
 	<div class="container"
 		style="background-color: #C8C8C8; border: 1px solid #D8D8D8;">
 		<div class="row">
+			<div class="col-sm-1">#</div>
 			<div class="col-sm-2">
 				Nazwa</a>
 			</div>
 			<div class="col-sm-2">Bilans</div>
-			<div class="col-sm-7">Opis</div>
+			<div class="col-sm-6">Opis</div>
 			<div class="col-sm-1">#</div>
 		</div>
 	</div>
@@ -48,11 +61,12 @@ $(document).ready(function(){
 		<div class="container"
 			style="background-color: #f1f1f1; border: 1px solid #D8D8D8;">
 			<div class="row">
+				<div class="col-sm-1"><input type="checkbox" name=${account.id} value=${account.balance} onchange="calcsum(this)"><br></div>
 				<div class="col-sm-2">
 					<a href="${account.id}/1" data-toggle="tooltip"	title="Pokaż historię">${account.accountName}</a>
 				</div>
 				<div class="col-sm-2">${account.balance}</div>
-				<div class="col-sm-7">${account.description}</div>
+				<div class="col-sm-6">${account.description}</div>
 				<div class="col-sm-1">
 					<a href="edit/${account.id}">Edytuj</a>
 				</div>
@@ -62,6 +76,13 @@ $(document).ready(function(){
 	</c:forEach>
 
 	<%@ include file="footer.jsp" %>
+
+	<div class="container"
+		style="background-color: #C8C8C8; border: 1px solid #D8D8D8;">
+		<div class="row">
+			<div class="col-sm-12" id="sum">0</div>
+		</div>
+	</div>
 
 
 </body>
