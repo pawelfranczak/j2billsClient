@@ -40,8 +40,13 @@ public class AccountController {
 	@RequestMapping("/")
 	public ModelAndView listAllAccounts() {
 		List<Account> accounts = daoAccount.getAll();
+		BigDecimal sumOfAllAccounts = BigDecimal.ZERO;
+		for (Account account : accounts) {
+			sumOfAllAccounts = sumOfAllAccounts.add(account.getBalance());
+		}
 		ModelAndView mv = new ModelAndView("account_show_all");
 		mv.addObject("accounts", accounts);
+		mv.addObject("sumOfAllAccounts", sumOfAllAccounts);
 		return mv;
 	}
 	
