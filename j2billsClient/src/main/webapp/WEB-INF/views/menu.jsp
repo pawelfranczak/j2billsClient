@@ -36,9 +36,9 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Dziennik:</h6>
-            <a class="collapse-item" href="j2billsClient/journal/create">Nowy wpis</a>
-            <a class="collapse-item" href="j2billsClient/journal/createMovement">Przelew</a>
-            <a class="collapse-item" href="j2billsClient/journal/1">Historia</a>
+            <a class="collapse-item" href="/j2billsClient/journal/create">Nowy wpis</a>
+            <a class="collapse-item" href="/j2billsClient/journal/createMovement">Przelew</a>
+            <a class="collapse-item" href="/j2billsClient/journal/1">Historia</a>
           </div>
         </div>
       </li>
